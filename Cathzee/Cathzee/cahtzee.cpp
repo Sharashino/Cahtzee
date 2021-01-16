@@ -1,7 +1,7 @@
 #include "Player.h"
 #include <iostream>
 
-int Player::RollDice()
+int Player::rollDice()
 {
 	std::random_device rd;
 	std::mt19937 gen(rd());
@@ -10,20 +10,20 @@ int Player::RollDice()
 	return result(gen);
 }
 
+void Player::reRoll()
+{
+	for (int i = 0; i < 5; i++)
+	{
+		diceArray[i] = rollDice();
+	}
+}
 
-void Player::HoldDice()
+void Player::showCurrentDice()
 {
 
 }
 
-void Player::DisplayCurDice()
+void Player::takeTurn()
 {
 
 }
-
-void Player::TakeTurn()
-{
-}
-
-
-

@@ -1,5 +1,7 @@
 #include <stdlib.h>
 #include <random>
+#include <iostream>
+
 class Player
 {
 public:
