@@ -10,7 +10,7 @@ public:
     void SetName();
     int RollDice();
     void RollFiveDice();
-    void ShowCurrentDice();
+    void ShowCurrentDices();
     void HoldDice();
     void TakeTurn();
     void ReRoll();

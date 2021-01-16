@@ -8,8 +8,7 @@ int main()
 	Player player2;
 
 	player1.SetName();
-
-	player1.RollFiveDice();
+	player1.TakeTurn();
 
 
 

@@ -17,6 +17,17 @@ int Player::RollDice()
 	return result(gen);
 }
 
+void Player::ReRoll()
+{
+    for (int i = 0; i < 5; i++)
+    {
+        if (diceArray[i] == 0)
+        {
+            diceArray[i] = RollDice();
+        }
+    }
+}
+
 void Player::RollFiveDice()
 {
 	std::cout << "Rolling for " << playerName;
@@ -53,6 +64,98 @@ void Player::RollFiveDice()
 			break;
 		}
 	}
+}
+
+void Player::ShowCurrentDices()
+{
+    for (int i = 0; i < 5; i++)
+    {
+        std::cout << i + 1;
+
+        switch (diceArray[i])
+        {
+        case 1:
+            DrawDice1();
+            break;
+        case 2:
+            DrawDice2();
+            break;
+        case 3:
+            DrawDice3();
+            break;
+        case 4:
+            DrawDice4();
+            break;
+        case 5:
+            DrawDice5();
+            break;
+        case 6:
+            DrawDice6();
+            break;
+        default:
+            break;
+        }
+    }
+}
+
+void Player::TakeTurn()
+{
+    RollFiveDice();
+
+    int remainingRolls = 2;
+    int playerChoice = 0;
+
+
+    std::cout << "Pozostala liczba ponownych rzutow: " << remainingRolls + 1 << std::endl;
+    std::cout << "Co chcesz zrobić?" << std::endl;
+    std::cout << "1. Wybierz kosci do zostawienia" << std::endl;
+    std::cout << "2. Ponowny rzut wszystkimi koscmi" << std::endl;
+    std::cout << "3. Zakoncz ture i wybierz kategorie" << std::endl;
+    std::cout << "4. Pokaz tablice z punktami" << std::endl;
+    std::cin >> playerChoice;
+
+    switch (playerChoice)
+    {
+    case 1:
+        HoldDice();
+        ShowCurrentDices();
+        break;
+    case 2:
+        break;
+    case 3:
+        break;
+    case 4:
+        break;
+    default:
+        std::cout << "Wybierz wlasciwa opcje!!!";
+        break;
+    }
+}
+
+void Player::HoldDice()
+{
+    std::string diceToHold;
+
+    std::cout << "Podaj numer kostki, ktora chcesz zatrzymac: ";
+    std::cin >> diceToHold;
+
+    if ((diceToHold.find("1", 0, 1)) == -1) {
+        diceArray[0] = 0;
+    }
+    if ((diceToHold.find("2", 0, 1)) == -1) {
+        diceArray[1] = 0;
+    }
+    if ((diceToHold.find("3", 0, 1)) == -1) {
+        diceArray[2] = 0;
+    }
+    if ((diceToHold.find("4", 0, 1)) == -1) {
+        diceArray[3] = 0;
+    }
+    if ((diceToHold.find("5", 0, 1)) == -1) {
+        diceArray[4] = 0;
+    }
+
+    ReRoll();
 }
 
 void Player::DisplayPlayerCard() {
