@@ -1,16 +1,15 @@
 #include "Player.h"
+#include <iostream>
 
 int Player::RollDice()
 {
-	int result = (rand() % 6) + 1;
-	
-	return result;
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<> result(1, 6);
+
+	return result(gen);
 }
 
-void Player::ReRollDice()
-{
-
-}
 
 void Player::HoldDice()
 {
@@ -24,19 +23,7 @@ void Player::DisplayCurDice()
 
 void Player::TakeTurn()
 {
-
 }
-
-void Player::DisplayPlayerScore()
-{
-
-}
-
-void Player::EndGame()
-{
-
-}
-
 
 
 
