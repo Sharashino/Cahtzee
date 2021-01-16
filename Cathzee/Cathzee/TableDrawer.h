@@ -1,5 +1,6 @@
 #include "Player.h"
-void Player::displayPlayerCard() {
+
+void Player::DisplayPlayerCard() {
     std::cout << "------------------------------------" << std::endl;
     if (aces != -1) {
         std::cout << "a. Aces           | " << aces << std::endl;
