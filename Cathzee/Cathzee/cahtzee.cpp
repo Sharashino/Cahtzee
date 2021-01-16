@@ -1,5 +1,5 @@
 #include "Player.h"
-#include <iostream>
+#include "DiceDrawer.h"
 
 int Player::rollDice()
 {
@@ -10,20 +10,35 @@ int Player::rollDice()
 	return result(gen);
 }
 
-void Player::reRoll()
+void Player::rollFiveDice()
 {
 	for (int i = 0; i < 5; i++)
 	{
-		diceArray[i] = rollDice();
+		int x = rollDice();
+		diceArray[i] = x;
+
+		switch (diceArray[i])
+		{
+		case 1: 
+			DrawDice1();
+			break;
+		case 2:
+			DrawDice2();
+			break;
+		case 3:
+			DrawDice3();
+			break;
+		case 4:
+			DrawDice4();
+			break;
+		case 5:
+			DrawDice5();
+			break;
+		case 6:
+			DrawDice6();
+			break;
+		default:
+			break;
+		}
 	}
-}
-
-void Player::showCurrentDice()
-{
-
-}
-
-void Player::takeTurn()
-{
-
 }

@@ -1,4 +1,4 @@
-#include "Player.h"
+#include <iostream>
 
 void DrawDice1()
 {
@@ -23,7 +23,7 @@ void DrawDice3()
 	std::cout << "*********\n"
 			  << "* X     *\n"
 			  << "*   X   *\n"
-			  << "*	    X *\n"
+			  << "*     X *\n"
 			  << "*********\n";
 }
 

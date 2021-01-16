@@ -1,11 +1,10 @@
-#include <iostream>
 #include "Player.h"
 
 int main()
 {
 	Player player1;
 
-	player1.RollDice();
+	player1.rollFiveDice();
 
 	return 0;
 }
