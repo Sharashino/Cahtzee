@@ -1,3 +1,41 @@
-﻿  main.cpp
-  LINK : nie znaleziono elementu E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Debug\Cathzee.exe ani nie został on skompilowany podczas ostatniego konsolidowania przyrostowego; zostanie wykonana pełna konsolidacja
-  Cathzee.vcxproj -> E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Debug\Cathzee.exe
+﻿  cahtzee.cpp
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\Player.h(7,1): error C2011: "Player'': "class" wpisz ponownie definicję
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\Player.h(6): message : zobacz deklarację „Player”
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(2,14): error C2027: wykorzystanie niezdefiniowanego przez użytkownika typu "Player"
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\Player.h(6): message : zobacz deklarację „Player”
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(4,9): error C2065: "aces": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(5,48): error C2065: "aces": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(11,9): error C2065: "twos": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(12,48): error C2065: "twos": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(18,9): error C2065: "threes": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(19,48): error C2065: "threes": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(25,9): error C2065: "fours": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(26,48): error C2065: "fours": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(32,9): error C2065: "fives": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(33,48): error C2065: "fives": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(39,9): error C2065: "sixes": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(40,48): error C2065: "sixes": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(46,9): error C2065: "bonus": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(47,48): error C2065: "bonus": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(53,47): error C2065: "topScore": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(56,9): error C2065: "threeKind": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(57,51): error C2065: "threeKind": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(63,9): error C2065: "fourKind": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(64,51): error C2065: "fourKind": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(70,9): error C2065: "fullHouse": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(71,51): error C2065: "fullHouse": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(77,9): error C2065: "smStraight": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(78,51): error C2065: "smStraight": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(84,9): error C2065: "lrgStraight": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(85,51): error C2065: "lrgStraight": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(91,9): error C2065: "yahtzee": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(92,51): error C2065: "yahtzee": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(98,9): error C2065: "chance": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(99,51): error C2065: "chance": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\TableDrawer.h(105,51): error C2065: "playerScore": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\cahtzee.cpp(4,13): error C2027: wykorzystanie niezdefiniowanego przez użytkownika typu "Player"
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\Player.h(6): message : zobacz deklarację „Player”
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\cahtzee.cpp(13,14): error C2027: wykorzystanie niezdefiniowanego przez użytkownika typu "Player"
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\Player.h(6): message : zobacz deklarację „Player”
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\cahtzee.cpp(18,3): error C2065: "diceArray": niezadeklarowany identyfikator
+E:\projekty\studia\c++ kosci\Cahtzee\Cahtzee\Cathzee\Cathzee\cahtzee.cpp(20,11): error C2065: "diceArray": niezadeklarowany identyfikator
