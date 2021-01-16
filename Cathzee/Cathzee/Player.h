@@ -1,13 +1,19 @@
-#pragma once
+#include <stdlib.h>
 class Player
 {
 public:
-	double liczba; //prawo dostêpu: publiczne
-	char tablica[20]; //prawo dostêpu: publiczne
-	int TwojaPrywatnaFunkcja(int a, int b)
-	{
-		return(a + b);
-	}
+	int score = 0; //prawo dostêpu: publiczne
+	int ones; //prawo dostêpu: publiczne
+	int twos;
+	int threes;
+	int fours;
+	int fives;
+	int sixs;
+	int RollDice();
+	void ReReollDice();
+	void HoldDice();
+	void DisplayCurDice();
+	void TakeTurn();
 
 private:
 	int abc; //prawo dostêpu: prytatne
