@@ -15,7 +15,7 @@ public:
     void TakeTurn();
     void ReRoll();
     void SelectScoreCard();
-    void DisplayPlayerCard();
+    void DisplayScoreboard();
     void EndGame();
     int DisplayPlayerScore();
 private:

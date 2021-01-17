@@ -100,43 +100,76 @@ void Player::ShowCurrentDices()
 
 void Player::TakeTurn()
 {
-    RollFiveDice();
-
-    int remainingRolls = 2;
-    int playerChoice = 0;
-
-
-    std::cout << "Pozostala liczba ponownych rzutow: " << remainingRolls + 1 << std::endl;
-    std::cout << "Co chcesz zrobić?" << std::endl;
-    std::cout << "1. Wybierz kosci do zostawienia" << std::endl;
-    std::cout << "2. Ponowny rzut wszystkimi koscmi" << std::endl;
-    std::cout << "3. Zakoncz ture i wybierz kategorie" << std::endl;
-    std::cout << "4. Pokaz tablice z punktami" << std::endl;
-    std::cin >> playerChoice;
-
-    switch (playerChoice)
+    while (slotsFilled < 13)
     {
-    case 1:
-        HoldDice();
-        ShowCurrentDices();
-        break;
-    case 2:
-        break;
-    case 3:
-        break;
-    case 4:
-        break;
-    default:
-        std::cout << "Wybierz wlasciwa opcje!!!";
-        break;
+        RollFiveDice();
+
+        int remainingRolls = 3;
+        int playerChoice = 0;
+
+        while (remainingRolls > 0)
+        {
+
+            std::cout << "Pozostala liczba ponownych rzutow: " << remainingRolls << std::endl;
+            std::cout << "Co chcesz zrobic?" << std::endl;
+            std::cout << "1. Wybierz kosci do zostawienia" << std::endl;
+            std::cout << "2. Ponowny rzut wszystkimi koscmi" << std::endl;
+            std::cout << "3. Zakoncz ture i wybierz kategorie" << std::endl;
+            std::cout << "4. Pokaz tablice z punktami" << std::endl;
+            std::cout << "5. Pokaz kostki" << std::endl;
+            std::cout << "Wybor: ";
+            std::cin >> playerChoice;
+
+            switch (playerChoice)
+            {
+            case 1:
+                HoldDice();
+                system("cls");
+                ShowCurrentDices();
+                break;
+            case 2:
+                system("cls");
+                RollFiveDice();
+                break;
+            case 3:
+                remainingRolls = 0;
+                system("cls");
+                SelectScoreCard();
+                break;
+            case 4:
+                remainingRolls++;
+                system("cls");
+                DisplayScoreboard();
+                break;
+            case 5:
+                remainingRolls++;
+                system("cls");
+                ShowCurrentDices();
+                break;
+            default:
+                std::cout << "Wybierz wlasciwa opcje!!! \n";
+                remainingRolls++;
+                break;
+            }
+
+            remainingRolls--;
+
+            if (remainingRolls == 0)
+            {
+                SelectScoreCard();
+            }
+        }
     }
+
+    EndGame();
 }
 
 void Player::HoldDice()
 {
     std::string diceToHold;
 
-    std::cout << "Podaj numer kostki, ktora chcesz zatrzymac: ";
+    std::cout << "Podaj numer kostki, ktora chcesz zatrzymac" << std::endl;
+    std::cout << "Wypisz numery kostek bez spacji: ";
     std::cin >> diceToHold;
 
     if ((diceToHold.find("1", 0, 1)) == -1) {
@@ -158,7 +191,402 @@ void Player::HoldDice()
     ReRoll();
 }
 
-void Player::DisplayPlayerCard() {
+
+void Player::SelectScoreCard()
+{
+    char category;
+
+    DisplayScoreboard();
+    std::cout << "Wybierz kategorie punktow: ";
+    std::cin >> category;
+
+    bool valid = false;
+
+    while (valid == false)
+    {
+        switch (category)
+        {
+        case 'a':
+            if (aces == -1)
+            {
+                aces = 0;
+
+                for (int i = 0; i < 5; i++)
+                {
+                    if (diceArray[i] == 1)
+                    {
+                        aces++;
+                    }
+                }
+
+                slotsFilled++;
+                playerScore += aces;
+                topScore += aces;
+                valid = true;
+            }
+            else
+            {
+                std::cout << "Juz wypelniles to pole! \n";
+            }
+            break;
+        case 'b':
+            if (twos == -1)
+            {
+                twos = 0;
+
+                for (int i = 0; i < 5; i++)
+                {
+                    if (diceArray[i] == 2)
+                    {
+                        twos += 2;
+                    }
+                }
+
+                slotsFilled++;
+                playerScore += twos;
+                topScore += twos;
+                valid = true;
+            }
+            else
+            {
+                std::cout << "Juz wypelniles to pole! \n";
+            }
+            break;
+        case 'c':
+            if (threes == -1)
+            {
+                threes = 0;
+
+                for (int i = 0; i < 5; i++)
+                {
+                    if (diceArray[i] == 3)
+                    {
+                        threes += 3;
+                    }
+                }
+
+                slotsFilled++;
+                playerScore += threes;
+                topScore += threes;
+                valid = true;
+            }
+            else
+            {
+                std::cout << "Juz wypelniles to pole! \n";
+            }
+            break;
+        case 'd':
+            if (fours == -1)
+            {
+                fours = 0;
+
+                for (int i = 0; i < 5; i++)
+                {
+                    if (diceArray[i] == 4)
+                    {
+                        fours += 4;
+                    }
+                }
+
+                slotsFilled++;
+                playerScore += fours;
+                topScore += fours;
+                valid = true;
+            }
+            else
+            {
+                std::cout << "Juz wypelniles to pole! \n";
+            }
+            break;
+        case 'e':
+            if (fives == -1)
+            {
+                fives = 0;
+
+                for (int i = 0; i < 5; i++)
+                {
+                    if (diceArray[i] == 5)
+                    {
+                        fives += 5;
+                    }
+                }
+
+                slotsFilled++;
+                playerScore += fives;
+                topScore += fives;
+                valid = true;
+            }
+            else
+            {
+                std::cout << "Juz wypelniles to pole! \n";
+            }
+            break;
+        case 'f':
+            if (sixes == -1)
+            {
+                sixes = 0;
+
+                for (int i = 0; i < 5; i++)
+                {
+                    if (diceArray[i] == 6)
+                    {
+                        sixes += 6;
+                    }
+                }
+
+                slotsFilled++;
+                playerScore += sixes;
+                topScore += sixes;
+                valid = true;
+            }
+            else
+            {
+                std::cout << "Juz wypelniles to pole! \n";
+            }
+            break;
+        case 'g':
+            if (threeKind == -1)
+            {
+                threeKind = 0;
+                int oneCount = 0;
+                int twoCount = 0;
+                int threeCount = 0;
+                int fourCount = 0;
+                int fiveCount = 0;
+                int sixCount = 0;
+
+                for (int i = 0; i < 5; i++)
+                {
+                    if (diceArray[i] == 1) { oneCount++; }
+                    if (diceArray[i] == 2) { twoCount++; }
+                    if (diceArray[i] == 3) { threeCount++; }
+                    if (diceArray[i] == 4) { fourCount++; }
+                    if (diceArray[i] == 5) { fiveCount++; }
+                    if (diceArray[i] == 6) { sixCount++; }
+                }
+
+                if (oneCount > 2 || twoCount > 2 || threeCount > 2 || fourCount > 2 || fiveCount > 2 || sixCount > 2)
+                {
+                    for (int i = 0; i < 5; i++)
+                    {
+                        threeKind += diceArray[i];
+                    }
+                }
+
+                slotsFilled++;
+                playerScore += threeKind;
+                valid = true;
+            }
+            else
+            {
+                std::cout << "Juz wypelniles to pole! \n";
+            }
+            break;
+        case 'h':
+            if (fourKind == -1)
+            {
+                fourKind = 0;
+                int oneCount = 0;
+                int twoCount = 0;
+                int threeCount = 0;
+                int fourCount = 0;
+                int fiveCount = 0;
+                int sixCount = 0;
+
+                for (int i = 0; i < 5; i++)
+                {
+                    if (diceArray[i] == 1) { oneCount++; }
+                    if (diceArray[i] == 2) { twoCount++; }
+                    if (diceArray[i] == 3) { threeCount++; }
+                    if (diceArray[i] == 4) { fourCount++; }
+                    if (diceArray[i] == 5) { fiveCount++; }
+                    if (diceArray[i] == 6) { sixCount++; }
+                }
+
+                if (oneCount > 3 || twoCount > 3 || threeCount > 3 || fourCount > 3 || fiveCount > 3 || sixCount > 3)
+                {
+                    for (int i = 0; i < 5; i++)
+                    {
+                        fourKind += diceArray[i];
+                    }
+                }
+
+                slotsFilled++;
+                playerScore += fourKind;
+                valid = true;
+            }
+            else
+            {
+                std::cout << "Juz wypelniles to pole! \n";
+            }
+            break;
+        case 'i':
+            if (fullHouse == -1)
+            {
+                fullHouse = 0;
+                int oneCount = 0;
+                int twoCount = 0;
+                int threeCount = 0;
+                int fourCount = 0;
+                int fiveCount = 0;
+                int sixCount = 0;
+
+                for (int i = 0; i < 5; i++)
+                {
+                    if (diceArray[i] == 1) { oneCount++; }
+                    if (diceArray[i] == 2) { twoCount++; }
+                    if (diceArray[i] == 3) { threeCount++; }
+                    if (diceArray[i] == 4) { fourCount++; }
+                    if (diceArray[i] == 5) { fiveCount++; }
+                    if (diceArray[i] == 6) { sixCount++; }
+                }
+
+                if ((oneCount == 3 || twoCount == 3 || threeCount == 3 || fourCount == 3 || fiveCount == 3 || sixCount == 3) && (oneCount == 2 || twoCount == 2 || threeCount == 2 || fourCount == 2 || fiveCount == 2 || sixCount == 2))
+                {
+                    fullHouse = 25;
+                }
+
+                slotsFilled++;
+                playerScore += fullHouse;
+                valid = true;
+            }
+            else
+            {
+                std::cout << "Juz wypelniles to pole! \n";
+            }
+            break;
+        case 'j':
+            if (smStraight == -1)
+            {
+                smStraight = 0;
+                int oneCount = 0;
+                int twoCount = 0;
+                int threeCount = 0;
+                int fourCount = 0;
+                int fiveCount = 0;
+                int sixCount = 0;
+
+                for (int i = 0; i < 5; i++) {
+                    if (diceArray[i] == 1) { oneCount++; }
+                    if (diceArray[i] == 2) { twoCount++; }
+                    if (diceArray[i] == 3) { threeCount++; }
+                    if (diceArray[i] == 4) { fourCount++; }
+                    if (diceArray[i] == 5) { fiveCount++; }
+                    if (diceArray[i] == 6) { sixCount++; }
+                }
+
+                if ((oneCount >= 1 && twoCount >= 1 && threeCount >= 1 && fourCount >= 1) || (twoCount >= 1 && threeCount >= 1 && fourCount >= 1 && fiveCount >= 1) || (threeCount >= 1 && fourCount >= 1 && fiveCount >= 1 && sixCount >= 1))
+                {
+                    smStraight = 30;
+                }
+
+                slotsFilled++;
+                playerScore += smStraight;
+                valid = true;
+            }
+            else
+            {
+                std::cout << "Juz wypelniles to pole! \n";
+            }
+            break;
+        case 'k':
+            if (lrgStraight == -1)
+            {
+                lrgStraight = 0;
+                int oneCount = 0;
+                int twoCount = 0;
+                int threeCount = 0;
+                int fourCount = 0;
+                int fiveCount = 0;
+                int sixCount = 0;
+
+                for (int i = 0; i < 5; i++) {
+                    if (diceArray[i] == 1) { oneCount++; }
+                    if (diceArray[i] == 2) { twoCount++; }
+                    if (diceArray[i] == 3) { threeCount++; }
+                    if (diceArray[i] == 4) { fourCount++; }
+                    if (diceArray[i] == 5) { fiveCount++; }
+                    if (diceArray[i] == 6) { sixCount++; }
+                }
+
+                if ((oneCount >= 1 && twoCount >= 1 && threeCount >= 1 && fourCount >= 1 && fiveCount >= 1) || (twoCount >= 1 && threeCount >= 1 && fourCount >= 1 && fiveCount >= 1 && sixCount >= 1))
+                {
+                    lrgStraight = 40;
+                }
+
+                slotsFilled++;
+                playerScore += lrgStraight;
+                valid = true;
+            }
+            else
+            {
+                std::cout << "Juz wypelniles to pole! \n";
+            }
+            break;
+        case 'l':
+            if (yahtzee == -1)
+            {
+                yahtzee = 0;
+                int oneCount = 0;
+                int twoCount = 0;
+                int threeCount = 0;
+                int fourCount = 0;
+                int fiveCount = 0;
+                int sixCount = 0;
+
+                for (int i = 0; i < 5; i++)
+                {
+                    if (diceArray[i] == 1) { oneCount++; }
+                    if (diceArray[i] == 2) { twoCount++; }
+                    if (diceArray[i] == 3) { threeCount++; }
+                    if (diceArray[i] == 4) { fourCount++; }
+                    if (diceArray[i] == 5) { fiveCount++; }
+                    if (diceArray[i] == 6) { sixCount++; }
+                }
+
+                if (oneCount == 5 || twoCount == 5 || threeCount == 5 || fourCount == 5 || fiveCount == 5 || sixCount == 5)
+                {
+                    yahtzee = 50;
+                }
+
+                slotsFilled++;
+                playerScore += yahtzee;
+                valid = true;
+            }
+            else
+            {
+                std::cout << "Juz wypelniles to pole! \n";
+            }
+            break;
+        case 'm':
+            if (chance == -1)
+            {
+                chance = 0;
+
+                for (int i = 0; i < 5; i++)
+                {
+                    chance += diceArray[i];
+                }
+
+                slotsFilled++;
+                playerScore += chance;
+                valid = true;
+            }
+            else
+            {
+                std::cout << "Juz wypelniles to pole! \n";
+            }
+            break;
+        default:
+            std::cout << "Wpisz poprawna litere polecenia! \n";
+            category = NULL;
+            break;
+        }
+    }
+}
+
+void Player::DisplayScoreboard() 
+{
     std::cout << "------------------------------------" << std::endl;
     if (aces != -1) {
         std::cout << "a. Aces           | " << aces << std::endl;
@@ -263,4 +691,11 @@ void Player::DisplayPlayerCard() {
     std::cout << "------------------------------------" << std::endl;
     std::cout << "Score                    | " << playerScore << std::endl;
     std::cout << "------------------------------------" << std::endl;
+}
+
+void Player::EndGame()
+{
+    system("CLS");
+    std::cout << "Gratulacje, wygrywa gracz "<<playerName<<"!"<< std::endl;
+    DisplayScoreboard();
 }
