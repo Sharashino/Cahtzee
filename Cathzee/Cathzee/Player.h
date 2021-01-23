@@ -2,11 +2,14 @@
 #include <random>
 #include <iostream>
 #include <string>
+#include <stdio.h>
 
 class Player
 {
 public:
     Player() { playerScore = 0; topScore = 0; aces = -1; twos = -1; threes = -1; fours = -1; fives = -1; sixes = -1; bonus = -1; threeKind = -1; fourKind = -1; fullHouse = -1; smStraight = -1; lrgStraight = -1; yahtzee = -1; chance = -1; bonus = -1; slotsFilled = 0; }
+    int slotsFilled;
+    int playerScore;
     void SetName();
     int RollDice();
     void RollFiveDice();
@@ -21,7 +24,6 @@ public:
 private:
     int diceArray[5];
     std::string playerName;
-    int playerScore;    
     int topScore;
     int aces;
     int twos;
@@ -37,6 +39,5 @@ private:
     int lrgStraight;
     int yahtzee;
     int chance;
-    int slotsFilled;
 };
 

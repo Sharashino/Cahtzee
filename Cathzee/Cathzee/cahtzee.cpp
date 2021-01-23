@@ -1,6 +1,7 @@
 ﻿#include "Player.h"
 #include "DiceDrawer.h"
 
+
 void Player::SetName()
 {
     std::cout << "Podaj imie: ";
@@ -100,8 +101,6 @@ void Player::ShowCurrentDices()
 
 void Player::TakeTurn()
 {
-    while (slotsFilled < 13)
-    {
         RollFiveDice();
 
         int remainingRolls = 3;
@@ -159,9 +158,6 @@ void Player::TakeTurn()
                 SelectScoreCard();
             }
         }
-    }
-
-    EndGame();
 }
 
 void Player::HoldDice()
@@ -196,9 +192,12 @@ void Player::SelectScoreCard()
 {
     char category;
 
+    ShowCurrentDices();
     DisplayScoreboard();
+
     std::cout << "Wybierz kategorie punktow: ";
     std::cin >> category;
+
 
     bool valid = false;
 
@@ -227,6 +226,7 @@ void Player::SelectScoreCard()
             else
             {
                 std::cout << "Juz wypelniles to pole! \n";
+                SelectScoreCard();
             }
             break;
         case 'b':
@@ -250,6 +250,7 @@ void Player::SelectScoreCard()
             else
             {
                 std::cout << "Juz wypelniles to pole! \n";
+                SelectScoreCard();
             }
             break;
         case 'c':
@@ -273,6 +274,7 @@ void Player::SelectScoreCard()
             else
             {
                 std::cout << "Juz wypelniles to pole! \n";
+                SelectScoreCard();
             }
             break;
         case 'd':
@@ -296,6 +298,7 @@ void Player::SelectScoreCard()
             else
             {
                 std::cout << "Juz wypelniles to pole! \n";
+                SelectScoreCard();
             }
             break;
         case 'e':
@@ -319,6 +322,7 @@ void Player::SelectScoreCard()
             else
             {
                 std::cout << "Juz wypelniles to pole! \n";
+                SelectScoreCard();
             }
             break;
         case 'f':
@@ -342,6 +346,7 @@ void Player::SelectScoreCard()
             else
             {
                 std::cout << "Juz wypelniles to pole! \n";
+                SelectScoreCard();
             }
             break;
         case 'g':
@@ -380,6 +385,7 @@ void Player::SelectScoreCard()
             else
             {
                 std::cout << "Juz wypelniles to pole! \n";
+                SelectScoreCard();
             }
             break;
         case 'h':
@@ -418,6 +424,7 @@ void Player::SelectScoreCard()
             else
             {
                 std::cout << "Juz wypelniles to pole! \n";
+                SelectScoreCard();
             }
             break;
         case 'i':
@@ -453,6 +460,7 @@ void Player::SelectScoreCard()
             else
             {
                 std::cout << "Juz wypelniles to pole! \n";
+                SelectScoreCard();
             }
             break;
         case 'j':
@@ -487,6 +495,7 @@ void Player::SelectScoreCard()
             else
             {
                 std::cout << "Juz wypelniles to pole! \n";
+                SelectScoreCard();
             }
             break;
         case 'k':
@@ -521,6 +530,7 @@ void Player::SelectScoreCard()
             else
             {
                 std::cout << "Juz wypelniles to pole! \n";
+                SelectScoreCard();
             }
             break;
         case 'l':
@@ -556,6 +566,7 @@ void Player::SelectScoreCard()
             else
             {
                 std::cout << "Juz wypelniles to pole! \n";
+                SelectScoreCard();
             }
             break;
         case 'm':
@@ -575,11 +586,12 @@ void Player::SelectScoreCard()
             else
             {
                 std::cout << "Juz wypelniles to pole! \n";
+                SelectScoreCard();
             }
             break;
         default:
             std::cout << "Wpisz poprawna litere polecenia! \n";
-            category = NULL;
+            SelectScoreCard();
             break;
         }
     }
