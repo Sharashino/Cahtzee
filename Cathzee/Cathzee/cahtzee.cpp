@@ -101,6 +101,8 @@ void Player::ShowCurrentDices()
 
 void Player::TakeTurn()
 {
+        system("cls");
+
         RollFiveDice();
 
         int remainingRolls = 3;
@@ -220,6 +222,7 @@ void Player::HoldDice()
 
 void Player::SelectScoreCard()
 {
+
     int category;
 
     ShowCurrentDices();
@@ -632,11 +635,11 @@ void Player::SelectScoreCard()
             }
             break;
         default:
-            std::cout << "Wpisz poprawna litere polecenia! \n";
+            system("cls");
+            std::cout << "Wpisz poprawna cyfre polecenia! \n";
             SelectScoreCard();
             break;
         }
-
 
         if (topScore >= 63 && bonus == -1)
         {
@@ -723,31 +726,31 @@ void Player::DisplayScoreboard()
     }
     std::cout << "------------------------------------" << std::endl;
     if (smStraight != -1) {
-        std::cout << "10. Maly strit        | " << smStraight << std::endl;
+        std::cout << "10. Maly strit       | " << smStraight << std::endl;
     }
     else { 
-        std::cout << "10. Maly strit        | " << std::endl;
+        std::cout << "10. Maly strit       | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     if (lrgStraight != -1) {
-        std::cout << "11. Duzy strit        | " << lrgStraight << std::endl;
+        std::cout << "11. Duzy strit       | " << lrgStraight << std::endl;
     }
     else {
-        std::cout << "11. Duzy strit        | " << std::endl;
+        std::cout << "11. Duzy strit       | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     if (yahtzee != -1) {
-        std::cout << "12. General           | " << yahtzee << std::endl;
+        std::cout << "12. General          | " << yahtzee << std::endl;
     }
     else {
-        std::cout << "12. General           | " << std::endl;
+        std::cout << "12. General          | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     if (chance != -1) {
-        std::cout << "13. Szansa            | " << chance << std::endl;
+        std::cout << "13. Szansa           | " << chance << std::endl;
     }
     else {
-        std::cout << "13. Szansa            | " << std::endl;
+        std::cout << "13. Szansa           | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     std::cout << "Punkty               | " << playerScore << std::endl;

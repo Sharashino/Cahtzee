@@ -22,7 +22,7 @@ int main()
 	RECT r;
 	GetWindowRect(console, &r); //stores the console's current dimensions
 
-	MoveWindow(console, r.left, r.top, 800, 800, TRUE); // 800 width, 100 height
+	MoveWindow(console, r.left, r.top, 800, 1000	, TRUE); // 800 width, 100 height
 
 	std::cout << "Witaj w grze w kosci!\n";
 
