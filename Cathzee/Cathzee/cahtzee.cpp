@@ -295,7 +295,6 @@ void Player::SelectScoreCard()
             else
             {
                 std::cout << "Juz wypelniles to pole! \n";
-                SelectScoreCard();
             }
             break;
         case 3:
@@ -319,7 +318,6 @@ void Player::SelectScoreCard()
             else
             {
                 std::cout << "Juz wypelniles to pole! \n";
-                SelectScoreCard();
             }
             break;
         case 4:
@@ -343,7 +341,6 @@ void Player::SelectScoreCard()
             else
             {
                 std::cout << "Juz wypelniles to pole! \n";
-                SelectScoreCard();
             }
             break;
         case 5:
@@ -367,7 +364,6 @@ void Player::SelectScoreCard()
             else
             {
                 std::cout << "Juz wypelniles to pole! \n";
-                SelectScoreCard();
             }
             break;
         case 6:
@@ -391,7 +387,6 @@ void Player::SelectScoreCard()
             else
             {
                 std::cout << "Juz wypelniles to pole! \n";
-                SelectScoreCard();
             }
             break;
         case 7:
@@ -430,7 +425,6 @@ void Player::SelectScoreCard()
             else
             {
                 std::cout << "Juz wypelniles to pole! \n";
-                SelectScoreCard();
             }
             break;
         case 8:
@@ -469,7 +463,6 @@ void Player::SelectScoreCard()
             else
             {
                 std::cout << "Juz wypelniles to pole! \n";
-                SelectScoreCard();
             }
             break;
         case 9:
@@ -505,7 +498,6 @@ void Player::SelectScoreCard()
             else
             {
                 std::cout << "Juz wypelniles to pole! \n";
-                SelectScoreCard();
             }
             break;
         case 10:
@@ -540,7 +532,6 @@ void Player::SelectScoreCard()
             else
             {
                 std::cout << "Juz wypelniles to pole! \n";
-                SelectScoreCard();
             }
             break;
         case 11:
@@ -575,7 +566,6 @@ void Player::SelectScoreCard()
             else
             {
                 std::cout << "Juz wypelniles to pole! \n";
-                SelectScoreCard();
             }
             break;
         case 12:
@@ -611,7 +601,6 @@ void Player::SelectScoreCard()
             else
             {
                 std::cout << "Juz wypelniles to pole! \n";
-                SelectScoreCard();
             }
             break;
         case 13:
@@ -631,13 +620,11 @@ void Player::SelectScoreCard()
             else
             {
                 std::cout << "Juz wypelniles to pole! \n";
-                SelectScoreCard();
             }
             break;
         default:
             system("cls");
             std::cout << "Wpisz poprawna cyfre polecenia! \n";
-            SelectScoreCard();
             break;
         }
 
