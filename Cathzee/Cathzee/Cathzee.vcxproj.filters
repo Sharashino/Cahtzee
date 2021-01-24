@@ -29,8 +29,5 @@
     <ClInclude Include="DiceDrawer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TableDrawer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

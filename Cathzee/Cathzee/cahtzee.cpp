@@ -594,6 +594,13 @@ void Player::SelectScoreCard()
             SelectScoreCard();
             break;
         }
+
+
+        if (topScore >= 63 && bonus == -1)
+        {
+            bonus += 23;
+            playerScore += bonus;
+        }
     }
 }
 
@@ -601,107 +608,107 @@ void Player::DisplayScoreboard()
 {
     std::cout << "------------------------------------" << std::endl;
     if (aces != -1) {
-        std::cout << "a. Aces           | " << aces << std::endl;
+        std::cout << "a. Jedynki           | " << aces << std::endl;
     }
     else {
-        std::cout << "a. Aces           | " << std::endl;
+        std::cout << "a. Jedynki           | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     if (twos != -1) {
-        std::cout << "b. 2's            | " << twos << std::endl;
+        std::cout << "b. Dwojki            | " << twos << std::endl;
     }
     else {
-        std::cout << "b. 2's            | " << std::endl;
+        std::cout << "b. Dwojki            | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     if (threes != -1) {
-        std::cout << "c. 3's            | " << threes << std::endl;
+        std::cout << "c. Trojki            | " << threes << std::endl;
     }
     else {
-        std::cout << "c. 3's            | " << std::endl;
+        std::cout << "c. Trojki            | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     if (fours != -1) {
-        std::cout << "d. 4's            | " << fours << std::endl;
+        std::cout << "d. Czworki           | " << fours << std::endl;
     }
     else {
-        std::cout << "d. 4's            | " << std::endl;
+        std::cout << "d. Czworki           | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     if (fives != -1) {
-        std::cout << "e. 5's            | " << fives << std::endl;
+        std::cout << "e. Piatki            | " << fives << std::endl;
     }
     else {
-        std::cout << "e. 5's            | " << std::endl;
+        std::cout << "e. Piatki            | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     if (sixes != -1) {
-        std::cout << "f. 6's            | " << sixes << std::endl;
+        std::cout << "f. Szostki           | " << sixes << std::endl;
     }
     else {
-        std::cout << "f. 6's            | " << std::endl;
+        std::cout << "f. Szostki           | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     if (bonus != -1) {
-        std::cout << "Bonus             | " << bonus << std::endl;
+        std::cout << "Bonus                | " << bonus << std::endl;
     }
     else {
-        std::cout << "Bonus             | " << std::endl;
+        std::cout << "Bonus                | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
-    std::cout << "Top Score            | " << topScore << std::endl;
+    std::cout << "Punkty gornej tabeli | " << topScore << std::endl;
     std::cout << "------------------------------------" << std::endl;
     std::cout << "------------------------------------" << std::endl;
     if (threeKind != -1) {
-        std::cout << "g. 3 of a kind       | " << threeKind << std::endl;
+        std::cout << "g. 3 jednakowe       | " << threeKind << std::endl;
     }
     else {
-        std::cout << "g. 3 of a kind       | " << std::endl;
+        std::cout << "g. 3 jednakowe       | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     if (fourKind != -1) {
-        std::cout << "h. 4 of a kind       | " << fourKind << std::endl;
+        std::cout << "h. 4 jednakowe       | " << fourKind << std::endl;
     }
     else {
-        std::cout << "h. 4 of a kind       | " << std::endl;
+        std::cout << "h. 4 jednakowe       | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     if (fullHouse != -1) {
-        std::cout << "i. Full House        | " << fullHouse << std::endl;
+        std::cout << "i. Full              | " << fullHouse << std::endl;
     }
     else {
-        std::cout << "i. Full House        | " << std::endl;
+        std::cout << "i. Full              | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     if (smStraight != -1) {
-        std::cout << "j. Sm. Straight      | " << smStraight << std::endl;
+        std::cout << "j. Maly strit        | " << smStraight << std::endl;
     }
-    else {
-        std::cout << "j. Sm. Straight      | " << std::endl;
+    else { 
+        std::cout << "j. Maly strit        | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     if (lrgStraight != -1) {
-        std::cout << "k. Lrg. Straight     | " << lrgStraight << std::endl;
+        std::cout << "k. Duzy strit        | " << lrgStraight << std::endl;
     }
     else {
-        std::cout << "k. Lrg. Straight     | " << std::endl;
+        std::cout << "k. Duzy strit        | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     if (yahtzee != -1) {
-        std::cout << "l. Yahtzee           | " << yahtzee << std::endl;
+        std::cout << "l. General           | " << yahtzee << std::endl;
     }
     else {
-        std::cout << "l. Yahtzee           | " << std::endl;
+        std::cout << "l. General           | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     if (chance != -1) {
-        std::cout << "m. Chance            | " << chance << std::endl;
+        std::cout << "m. Szansa            | " << chance << std::endl;
     }
     else {
-        std::cout << "m. Chance            | " << std::endl;
+        std::cout << "m. Szansa            | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
-    std::cout << "Score                    | " << playerScore << std::endl;
+    std::cout << "Punkty               | " << playerScore << std::endl;
     std::cout << "------------------------------------" << std::endl;
 }
 
