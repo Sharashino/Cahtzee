@@ -117,7 +117,22 @@ void Player::TakeTurn()
             std::cout << "4. Pokaz tablice z punktami" << std::endl;
             std::cout << "5. Pokaz kostki" << std::endl;
             std::cout << "Wybor: ";
-            std::cin >> playerChoice;
+
+            while (1)
+            {
+                std::cin >> playerChoice;
+
+                if (std::cin.good())
+                {
+                    break;
+                }
+                else
+                {
+                    std::cin.clear();
+                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                    std::cout << "Wybierz prawidlowa opcje!\n";
+                }
+            }
 
             switch (playerChoice)
             {
@@ -166,7 +181,22 @@ void Player::HoldDice()
 
     std::cout << "Podaj numer kostki, ktora chcesz zatrzymac" << std::endl;
     std::cout << "Wypisz numery kostek bez spacji: ";
-    std::cin >> diceToHold;
+
+    while (1)
+    {
+        std::cin >> diceToHold;
+
+        if (std::cin.good())
+        {
+            break;
+        }
+        else
+        {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Wybierz prawidlowa opcje!\n";
+        }
+    }
 
     if ((diceToHold.find("1", 0, 1)) == -1) {
         diceArray[0] = 0;
@@ -190,22 +220,34 @@ void Player::HoldDice()
 
 void Player::SelectScoreCard()
 {
-    char category;
+    int category;
 
     ShowCurrentDices();
     DisplayScoreboard();
-
-    std::cout << "Wybierz kategorie punktow: ";
-    std::cin >> category;
-
 
     bool valid = false;
 
     while (valid == false)
     {
+        while (1)
+        {
+            std::cout << "Wybierz kategorie punktow: ";
+            std::cin >> category;
+
+            if (std::cin.good())
+            {
+                break;
+            }
+            else
+            {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            }
+        }
+
         switch (category)
         {
-        case 'a':
+        case 1:
             if (aces == -1)
             {
                 aces = 0;
@@ -226,10 +268,10 @@ void Player::SelectScoreCard()
             else
             {
                 std::cout << "Juz wypelniles to pole! \n";
-                SelectScoreCard();
+                break;
             }
             break;
-        case 'b':
+        case 2:
             if (twos == -1)
             {
                 twos = 0;
@@ -253,7 +295,7 @@ void Player::SelectScoreCard()
                 SelectScoreCard();
             }
             break;
-        case 'c':
+        case 3:
             if (threes == -1)
             {
                 threes = 0;
@@ -277,7 +319,7 @@ void Player::SelectScoreCard()
                 SelectScoreCard();
             }
             break;
-        case 'd':
+        case 4:
             if (fours == -1)
             {
                 fours = 0;
@@ -301,7 +343,7 @@ void Player::SelectScoreCard()
                 SelectScoreCard();
             }
             break;
-        case 'e':
+        case 5:
             if (fives == -1)
             {
                 fives = 0;
@@ -325,7 +367,7 @@ void Player::SelectScoreCard()
                 SelectScoreCard();
             }
             break;
-        case 'f':
+        case 6:
             if (sixes == -1)
             {
                 sixes = 0;
@@ -349,7 +391,7 @@ void Player::SelectScoreCard()
                 SelectScoreCard();
             }
             break;
-        case 'g':
+        case 7:
             if (threeKind == -1)
             {
                 threeKind = 0;
@@ -388,7 +430,7 @@ void Player::SelectScoreCard()
                 SelectScoreCard();
             }
             break;
-        case 'h':
+        case 8:
             if (fourKind == -1)
             {
                 fourKind = 0;
@@ -427,7 +469,7 @@ void Player::SelectScoreCard()
                 SelectScoreCard();
             }
             break;
-        case 'i':
+        case 9:
             if (fullHouse == -1)
             {
                 fullHouse = 0;
@@ -463,7 +505,7 @@ void Player::SelectScoreCard()
                 SelectScoreCard();
             }
             break;
-        case 'j':
+        case 10:
             if (smStraight == -1)
             {
                 smStraight = 0;
@@ -498,7 +540,7 @@ void Player::SelectScoreCard()
                 SelectScoreCard();
             }
             break;
-        case 'k':
+        case 11:
             if (lrgStraight == -1)
             {
                 lrgStraight = 0;
@@ -533,7 +575,7 @@ void Player::SelectScoreCard()
                 SelectScoreCard();
             }
             break;
-        case 'l':
+        case 12:
             if (yahtzee == -1)
             {
                 yahtzee = 0;
@@ -569,7 +611,7 @@ void Player::SelectScoreCard()
                 SelectScoreCard();
             }
             break;
-        case 'm':
+        case 13:
             if (chance == -1)
             {
                 chance = 0;
@@ -598,7 +640,7 @@ void Player::SelectScoreCard()
 
         if (topScore >= 63 && bonus == -1)
         {
-            bonus += 23;
+            bonus = 23;
             playerScore += bonus;
         }
     }
@@ -608,45 +650,45 @@ void Player::DisplayScoreboard()
 {
     std::cout << "------------------------------------" << std::endl;
     if (aces != -1) {
-        std::cout << "a. Jedynki           | " << aces << std::endl;
+        std::cout << "1. Jedynki           | " << aces << std::endl;
     }
     else {
-        std::cout << "a. Jedynki           | " << std::endl;
+        std::cout << "1. Jedynki           | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     if (twos != -1) {
-        std::cout << "b. Dwojki            | " << twos << std::endl;
+        std::cout << "2. Dwojki            | " << twos << std::endl;
     }
     else {
-        std::cout << "b. Dwojki            | " << std::endl;
+        std::cout << "2. Dwojki            | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     if (threes != -1) {
-        std::cout << "c. Trojki            | " << threes << std::endl;
+        std::cout << "3. Trojki            | " << threes << std::endl;
     }
     else {
-        std::cout << "c. Trojki            | " << std::endl;
+        std::cout << "3. Trojki            | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     if (fours != -1) {
-        std::cout << "d. Czworki           | " << fours << std::endl;
+        std::cout << "4. Czworki           | " << fours << std::endl;
     }
     else {
-        std::cout << "d. Czworki           | " << std::endl;
+        std::cout << "4. Czworki           | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     if (fives != -1) {
-        std::cout << "e. Piatki            | " << fives << std::endl;
+        std::cout << "5. Piatki            | " << fives << std::endl;
     }
     else {
-        std::cout << "e. Piatki            | " << std::endl;
+        std::cout << "5. Piatki            | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     if (sixes != -1) {
-        std::cout << "f. Szostki           | " << sixes << std::endl;
+        std::cout << "6. Szostki           | " << sixes << std::endl;
     }
     else {
-        std::cout << "f. Szostki           | " << std::endl;
+        std::cout << "6. Szostki           | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     if (bonus != -1) {
@@ -660,52 +702,52 @@ void Player::DisplayScoreboard()
     std::cout << "------------------------------------" << std::endl;
     std::cout << "------------------------------------" << std::endl;
     if (threeKind != -1) {
-        std::cout << "g. 3 jednakowe       | " << threeKind << std::endl;
+        std::cout << "7. 3 jednakowe       | " << threeKind << std::endl;
     }
     else {
-        std::cout << "g. 3 jednakowe       | " << std::endl;
+        std::cout << "7. 3 jednakowe       | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     if (fourKind != -1) {
-        std::cout << "h. 4 jednakowe       | " << fourKind << std::endl;
+        std::cout << "8. 4 jednakowe       | " << fourKind << std::endl;
     }
     else {
-        std::cout << "h. 4 jednakowe       | " << std::endl;
+        std::cout << "8. 4 jednakowe       | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     if (fullHouse != -1) {
-        std::cout << "i. Full              | " << fullHouse << std::endl;
+        std::cout << "9. Full              | " << fullHouse << std::endl;
     }
     else {
-        std::cout << "i. Full              | " << std::endl;
+        std::cout << "9. Full              | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     if (smStraight != -1) {
-        std::cout << "j. Maly strit        | " << smStraight << std::endl;
+        std::cout << "10. Maly strit        | " << smStraight << std::endl;
     }
     else { 
-        std::cout << "j. Maly strit        | " << std::endl;
+        std::cout << "10. Maly strit        | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     if (lrgStraight != -1) {
-        std::cout << "k. Duzy strit        | " << lrgStraight << std::endl;
+        std::cout << "11. Duzy strit        | " << lrgStraight << std::endl;
     }
     else {
-        std::cout << "k. Duzy strit        | " << std::endl;
+        std::cout << "11. Duzy strit        | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     if (yahtzee != -1) {
-        std::cout << "l. General           | " << yahtzee << std::endl;
+        std::cout << "12. General           | " << yahtzee << std::endl;
     }
     else {
-        std::cout << "l. General           | " << std::endl;
+        std::cout << "12. General           | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     if (chance != -1) {
-        std::cout << "m. Szansa            | " << chance << std::endl;
+        std::cout << "13. Szansa            | " << chance << std::endl;
     }
     else {
-        std::cout << "m. Szansa            | " << std::endl;
+        std::cout << "13. Szansa            | " << std::endl;
     }
     std::cout << "------------------------------------" << std::endl;
     std::cout << "Punkty               | " << playerScore << std::endl;
@@ -715,6 +757,6 @@ void Player::DisplayScoreboard()
 void Player::EndGame()
 {
     system("CLS");
-    std::cout << "Gratulacje, wygrywa gracz "<<playerName<<"!"<< std::endl;
+    std::cout << "Gratulacje, wygrywa gracz " << playerName << "! " << "Zdobyles " << playerScore << " punktow!" << std::endl;
     DisplayScoreboard();
 }
