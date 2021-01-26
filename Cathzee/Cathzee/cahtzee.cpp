@@ -2,11 +2,10 @@
 #include "DiceDrawer.h"
 
 
-void Player::SetName()
+void Player::SetName(std::string name)
 {
-    std::cout << "Podaj imie: ";
+    std::cout << "Podaj imie "<< name <<": ";
 	std::cin >> playerName;
-	
 }
 
 int Player::RollDice()
@@ -31,7 +30,7 @@ void Player::ReRoll()
 
 void Player::RollFiveDice()
 {
-	std::cout << "Rolling for " << playerName;
+	std::cout << "Rzucam dla " << playerName;
 	std::cout << "\n";
 
 	for (int i = 0; i < 5; i++)
@@ -222,10 +221,8 @@ void Player::HoldDice()
 
 void Player::SelectScoreCard()
 {
-
     int category;
 
-    ShowCurrentDices();
     DisplayScoreboard();
 
     bool valid = false;

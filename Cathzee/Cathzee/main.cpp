@@ -1,7 +1,6 @@
 #include <windows.h>
 #include "Player.h"
 
-
 void SumPlayersPoints(Player fstPlayer, Player secPlayer)
 {
 
@@ -15,26 +14,26 @@ void SumPlayersPoints(Player fstPlayer, Player secPlayer)
 	}
 }
 
-
 int main()
 {
 	HWND console = GetConsoleWindow();
 	RECT r;
-	GetWindowRect(console, &r); //stores the console's current dimensions
+	GetWindowRect(console, &r);
+	MoveWindow(console, r.left, r.top, 800, 1000, TRUE);
 
-	MoveWindow(console, r.left, r.top, 800, 1000	, TRUE); // 800 width, 100 height
 
-	std::cout << "Witaj w grze w kosci!\n";
+	std::cout << "Witaj w Cahtzee - grze w kosci!\n";
+	std::cout << "Autorstwa Gerarda Adamkiewicza i Piotra Smilgina\n";
 
 	Player player1;
 	Player player2;
 
-	player1.SetName();
-	player2.SetName();
+	player1.SetName("pierwszego gracza");
+	player2.SetName("drugiego gracza");
 
 	int i = 0;
 
-	while (player1.slotsFilled != 13 && player2.slotsFilled != 13)
+	while ((player1.slotsFilled != 13) && (player2.slotsFilled != 13))
 	{
 		if (i % 2 == 0)
 		{
@@ -45,11 +44,10 @@ int main()
 			player2.TakeTurn();
 		}
 
-		i++;
+		++i;
 	}
 
 	SumPlayersPoints(player1, player2);
-
 
 	return 0;
 }
