@@ -1,7 +1,6 @@
 ﻿#include "Player.h"
 #include "DiceDrawer.h"
 
-
 void Player::SetName(std::string name)
 {
     std::cout << "Podaj imie "<< name <<": ";
